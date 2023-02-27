@@ -1,15 +1,18 @@
 <template>
   <div class="container">
     <TrackerHeader title="Task Tracker" />
+    <Tasks :tasks="tasks" />
   </div>
 </template>
 
 <script>
 import TrackerHeader from "./components/TrackerHeader.vue";
+import Tasks from "./components/Tasks.vue";
 export default {
   name: "App",
   components: {
     TrackerHeader,
+    Tasks,
   },
   data() {
     return {
