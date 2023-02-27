@@ -11,6 +11,35 @@ export default {
   components: {
     TrackerHeader,
   },
+  data() {
+    return {
+      tasks: [],
+    };
+  },
+  // lifecycle method, when in created cycle, that's when this will run
+  // hard coded here bc we dont have a backend yet. Normally we'd make a request here.
+  created() {
+    this.tasks = [
+      {
+        id: 1,
+        text: "Doctor Appointment",
+        day: "March 1st at 2:30pm",
+        reminder: true,
+      },
+      {
+        id: 2,
+        text: "Important meeting",
+        day: "March 3rd at 1:30pm",
+        reminder: true,
+      },
+      {
+        id: 3,
+        text: "Grocery shopping",
+        day: "March 4th at 10:00am",
+        reminder: false,
+      },
+    ];
+  },
 };
 </script>
 
