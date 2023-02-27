@@ -5,7 +5,7 @@
     <!-- For each individual task: -->
     <!-- <h3>{{ task.test }}</h3> -->
     <!-- The below 'task' renders the individual object -->
-    <Task :task="task" />
+    <Task @delete-task="$emit('delete-task', task.id)" :task="task" />
   </div>
 </template>
 
@@ -21,5 +21,6 @@ export default {
   components: {
     Task,
   },
+  emits: ["delete-task"],
 };
 </script>
