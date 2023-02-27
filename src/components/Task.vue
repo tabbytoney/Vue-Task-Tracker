@@ -3,7 +3,7 @@
   <div :class="[task.reminder ? 'reminder' : '', 'task']">
     <h3>
       {{ task.text }}
-      <i class="fas fa-times"></i>
+      <i @click="onDelete(task.id)" class="fas fa-times"></i>
     </h3>
     <p>{{ task.day }}</p>
   </div>
@@ -15,6 +15,13 @@ export default {
   name: "Task",
   props: {
     task: Object,
+  },
+  methods: {
+    onDelete(id) {
+      // $emit is like emitting a custom event, can name it whatever
+      // have to use this two levels up as well - Tasks and App.vue
+      this.$emit("delete-task", id);
+    },
   },
 };
 </script>

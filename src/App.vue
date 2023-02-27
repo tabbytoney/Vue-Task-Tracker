@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <TrackerHeader title="Task Tracker" />
-    <Tasks :tasks="tasks" />
+    <Tasks @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
@@ -18,6 +18,14 @@ export default {
     return {
       tasks: [],
     };
+  },
+  methods: {
+    deleteTask(id) {
+      if (confirm("Are you sure?")) {
+        // filter out all tasks except that with the id passed into deleteTask()
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+      }
+    },
   },
   // lifecycle method, when in created cycle, that's when this will run
   // hard coded here bc we dont have a backend yet. Normally we'd make a request here.
