@@ -1,13 +1,17 @@
 <template>
   <div class="container">
-    <h1>Hello World</h1>
+    <TrackerHeader title="Task Tracker" />
   </div>
 </template>
 
 <script>
+
+import TrackerHeader from './components/TrackerHeader.vue';
 export default {
   name: "App",
-  components: {},
+  components: {
+    TrackerHeader
+  },
 };
 </script>
 
