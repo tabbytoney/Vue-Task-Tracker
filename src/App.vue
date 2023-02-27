@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <TrackerHeader title="Task Tracker" />
-    <Tasks @delete-task="deleteTask" :tasks="tasks" />
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
 
@@ -25,6 +25,15 @@ export default {
         // filter out all tasks except that with the id passed into deleteTask()
         this.tasks = this.tasks.filter((task) => task.id !== id);
       }
+    },
+    toggleReminder(id) {
+      // updating the task - map through, make updates, return it
+      // For each task, check if the id is the same as the function parameter
+      // if so, return array with initial tasks and change the reminder to the opposite of whatever it is on that task.
+      // if none match, just return tasks as is
+      this.tasks = this.tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      );
     },
   },
   // lifecycle method, when in created cycle, that's when this will run
