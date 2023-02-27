@@ -5,12 +5,11 @@
 </template>
 
 <script>
-
-import TrackerHeader from './components/TrackerHeader.vue';
+import TrackerHeader from "./components/TrackerHeader.vue";
 export default {
   name: "App",
   components: {
-    TrackerHeader
+    TrackerHeader,
   },
 };
 </script>
