@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <TrackerHeader title="Task Tracker" />
+    <AddTask @add-task="addTask" />
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   </div>
 </template>
@@ -8,11 +9,14 @@
 <script>
 import TrackerHeader from "./components/TrackerHeader.vue";
 import Tasks from "./components/Tasks.vue";
+import AddTask from "./components/AddTask.vue";
+
 export default {
   name: "App",
   components: {
     TrackerHeader,
     Tasks,
+    AddTask,
   },
   data() {
     return {
@@ -20,6 +24,10 @@ export default {
     };
   },
   methods: {
+    addTask(task) {
+      // show current tasks, add the new one to it.
+      this.tasks = [...this.tasks, task];
+    },
     deleteTask(id) {
       if (confirm("Are you sure?")) {
         // filter out all tasks except that with the id passed into deleteTask()
